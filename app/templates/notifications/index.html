@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Notifications - Classroom Notes{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-bell"></i> Notifications</h2>
+    <div class="btn-group">
+        <form method="POST" action="{{ url_for('notifications.mark_all_read') }}" class="d-inline">
+            <button type="submit" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-check-all"></i> Mark All Read
+            </button>
+        </form>
+        <form method="POST" action="{{ url_for('notifications.clear_all') }}" class="d-inline"
+              onsubmit="return confirm('Clear all notifications?');">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+                <i class="bi bi-trash"></i> Clear All
+            </button>
+        </form>
+    </div>
+</div>
+
+{% if notifications %}
+<div class="list-group shadow">
+    {% for notification in notifications %}
+    <div class="list-group-item list-group-item-action {{ '' if notification.is_read else 'bg-light' }}">
+        <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="d-flex align-items-center">
+                {% if not notification.is_read %}
+                <span class="badge bg-primary me-2">NEW</span>
+                {% endif %}
+                
+                <!-- Icon based on type -->
+                {% if notification.type == 'like' %}
+                <i class="bi bi-hand-thumbs-up-fill text-primary me-2"></i>
+                {% elif notification.type == 'comment' %}
+                <i class="bi bi-chat-fill text-success me-2"></i>
+                {% elif notification.type == 'approval' %}
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                {% elif notification.type == 'new_note' %}
+                <i class="bi bi-file-earmark-plus text-info me-2"></i>
+                {% elif notification.type == 'chat' %}
+                <i class="bi bi-chat-dots-fill text-warning me-2"></i>
+                {% else %}
+                <i class="bi bi-bell-fill text-secondary me-2"></i>
+                {% endif %}
+                
+                <div>
+                    <p class="mb-1">{{ notification.message }}</p>
+                    <small class="text-muted">{{ notification.created_at.strftime('%d %b %Y, %H:%M') }}</small>
+                </div>
+            </div>
+            <div class="btn-group">
+                {% if not notification.is_read %}
+                <form method="POST" action="{{ url_for('notifications.mark_read', id=notification.id) }}">
+                    <button type="submit" class="btn btn-sm btn-outline-success" title="Mark as read">
+                        <i class="bi bi-check"></i>
+                    </button>
+                </form>
+                {% endif %}
+                <form method="POST" action="{{ url_for('notifications.delete', id=notification.id) }}">
+                    <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5">
+    <i class="bi bi-bell-slash display-1 text-muted"></i>
+    <h4 class="mt-3">No Notifications</h4>
+    <p class="text-muted">You're all caught up!</p>
+</div>
+{% endif %}
+{% endblock %}
+

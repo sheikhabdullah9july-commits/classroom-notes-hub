@@ -1,0 +1,257 @@
+[
+  {
+    "path": ".env.example",
+    "bytes": 147,
+    "sha256": "c32a4ae5e1dde9ff4521a4ff742f9fa597b87e125fbb30c3211082d8490d9208"
+  },
+  {
+    "path": ".github/workflows/checks.yml",
+    "bytes": 336,
+    "sha256": "7787673b3e28781cf5ed5e54fc0c88f6e1cc5b61426fbb1d8664d932109e5fd9"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 209,
+    "sha256": "fac47cce8286d18c7c0f77331abda3ef671c114dc80b9956fb6751772ed806cc"
+  },
+  {
+    "path": "app/__init__.py",
+    "bytes": 1814,
+    "sha256": "682b272d27ffd6ab3547637346a97a6b8b3f0941a7570b05ef4db1408c2705e1"
+  },
+  {
+    "path": "app/models.py",
+    "bytes": 5722,
+    "sha256": "9b3ae6c999aac546f50c198cda626501a27c2006905dfa0caa38c9832a49679e"
+  },
+  {
+    "path": "app/routes/__init__.py",
+    "bytes": 18,
+    "sha256": "444fafa71ded49f189bd6324bf9c11b200d922c629290de26f8b7298107cb7af"
+  },
+  {
+    "path": "app/routes/admin.py",
+    "bytes": 3428,
+    "sha256": "2a9ca4b7efadb55791e91a0c78dac9612b7d7e6d89decac8c0a7139fa9bb36ed"
+  },
+  {
+    "path": "app/routes/auth.py",
+    "bytes": 6963,
+    "sha256": "2e0520a4d467a233198f2e6f8e9029d4fdfb0bc8effbd8d98c784972218ad559"
+  },
+  {
+    "path": "app/routes/chat.py",
+    "bytes": 3793,
+    "sha256": "48f40ef0e14eba401c167ee81800e8c4d6023fd4ac467f886622f1e501d0ae35"
+  },
+  {
+    "path": "app/routes/courses.py",
+    "bytes": 3051,
+    "sha256": "29c698635e63bebd4aabea7071cb8262bf003f668cbf32ed6f9b49d6e588544c"
+  },
+  {
+    "path": "app/routes/main.py",
+    "bytes": 381,
+    "sha256": "87b4f4cc6f9a0a4f7461de9a192aa8879f2da376ad11908ded8d827bd5998b19"
+  },
+  {
+    "path": "app/routes/notes.py",
+    "bytes": 7389,
+    "sha256": "1edd6318a607e15206f25da77f91f67d15f3b6a7a1fe50509876cb7b22bcef70"
+  },
+  {
+    "path": "app/routes/notifications.py",
+    "bytes": 2009,
+    "sha256": "49d94bcf26041ce9aa9eabfe8ebec45a1a6529447abfff8340cd0a50bc0d694c"
+  },
+  {
+    "path": "app/static/css/style.css",
+    "bytes": 987,
+    "sha256": "3818aa585fbafb53746bd680adbcad496617d3c5921f29142d65f1097a520282"
+  },
+  {
+    "path": "app/static/images/hero-image.png",
+    "bytes": 1037066,
+    "sha256": "50f497f0eac30b89a76977aef4ba99edf1411cad6f3ae120b3de895da2e50795"
+  },
+  {
+    "path": "app/templates/admin/index.html",
+    "bytes": 4931,
+    "sha256": "b1041c47500856661425a8ed5c51cdf760e042b8f5e131682bfb4f93ac4f3a70"
+  },
+  {
+    "path": "app/templates/admin/notes.html",
+    "bytes": 3729,
+    "sha256": "56794ef5e95fbbbfb6b9bbcac7bdffa251918f04359334147597401e81c5b06c"
+  },
+  {
+    "path": "app/templates/admin/users.html",
+    "bytes": 2919,
+    "sha256": "8a7c5dbb77a63c8c83ad538b1d8150e7d3e4e5106c447e75adde0a3b7da22d8e"
+  },
+  {
+    "path": "app/templates/auth/change_password.html",
+    "bytes": 2068,
+    "sha256": "839b10d3238b552dfb8c948150f5303a507ddbb7ace57eacb895a019ca587f8a"
+  },
+  {
+    "path": "app/templates/auth/forgot_password.html",
+    "bytes": 1665,
+    "sha256": "6d05c88936fd8a1ee5d99c1aad2bf3a756ebd4f24d0a185e8c1180beb7b8ee6d"
+  },
+  {
+    "path": "app/templates/auth/login.html",
+    "bytes": 2985,
+    "sha256": "7c97d2cfe52ff2c0121edc42cb9843d0b18106f566c79fa7fca2a3a70f2f936b"
+  },
+  {
+    "path": "app/templates/auth/profile.html",
+    "bytes": 2761,
+    "sha256": "e0eb1cb10872917db625d885123f8764324c8075adf7dbe5f6155ebaf52ed410"
+  },
+  {
+    "path": "app/templates/auth/register.html",
+    "bytes": 3248,
+    "sha256": "3d5af8280d7a6f8e7fa7e4a2ce123f64f9495b1c2e37d06d6dc62931eb69965a"
+  },
+  {
+    "path": "app/templates/auth/reset_password.html",
+    "bytes": 2060,
+    "sha256": "1bb9c706a1e8cdadf330cdcd678cf510ea08f7e69ab13287202740336ea73ee0"
+  },
+  {
+    "path": "app/templates/base.html",
+    "bytes": 6046,
+    "sha256": "b58d60e5efb2fe65bab0103883da9e6a347803a1e7fb2c11e3032057c77d393c"
+  },
+  {
+    "path": "app/templates/chat/create.html",
+    "bytes": 1701,
+    "sha256": "b735e3a96def0de002993a073728ce2a688cbac94ab502b6d354d386fe55392c"
+  },
+  {
+    "path": "app/templates/chat/index.html",
+    "bytes": 2338,
+    "sha256": "8c033e0ae2460951985af07954e855e303e9a07d5d28e0cf3d2fb1ff6216bde7"
+  },
+  {
+    "path": "app/templates/chat/room.html",
+    "bytes": 4667,
+    "sha256": "f3a28029d059561a154caa8ebe812aa4f83310f932327822106aa66762577fb7"
+  },
+  {
+    "path": "app/templates/courses/add.html",
+    "bytes": 2158,
+    "sha256": "2ba46e91f2884141341029c49f5852f88c58f49ac89bd6c81d8bce90bd084625"
+  },
+  {
+    "path": "app/templates/courses/edit.html",
+    "bytes": 2612,
+    "sha256": "428ec45c223f1cce7eb07a2ab3f85aaeee522bd665531b044f5d42bcf9d2232c"
+  },
+  {
+    "path": "app/templates/courses/index.html",
+    "bytes": 2055,
+    "sha256": "281375e744004398a9ac38478c88127fb45ef533e101b33dd183d004713777f2"
+  },
+  {
+    "path": "app/templates/courses/view.html",
+    "bytes": 3475,
+    "sha256": "86be60a52c801934338f8f085f553c16ba4ce53c4358f36359b4c2b09ad549fd"
+  },
+  {
+    "path": "app/templates/main/index.html",
+    "bytes": 4453,
+    "sha256": "fcf4333ab43bc70e922bb76618d073f1e81c17598c318fba7b06f1f0a0418328"
+  },
+  {
+    "path": "app/templates/notes/index.html",
+    "bytes": 2244,
+    "sha256": "3a9029f314465c3e67552f5290ea1b80c74be15f4ebe533bb78b12ce80b2a3ee"
+  },
+  {
+    "path": "app/templates/notes/my_notes.html",
+    "bytes": 2853,
+    "sha256": "fd86ab173b89ea061d9b62cc6fbbfee312f72f219479f8ed18e021b5b745ca9d"
+  },
+  {
+    "path": "app/templates/notes/upload.html",
+    "bytes": 2732,
+    "sha256": "619e31f0d41ea2918cdaf3aef60e3cef39fd26376d357526759a2d792ebac85b"
+  },
+  {
+    "path": "app/templates/notes/view.html",
+    "bytes": 7633,
+    "sha256": "1d58b46b303109828558bcd269bbf16658983f0ee4014977cee382bc95124b46"
+  },
+  {
+    "path": "app/templates/notifications/index.html",
+    "bytes": 3477,
+    "sha256": "8526f6f1a7a943bdd4baa8641ce4d8f35a5c109f029a613ee40c45a9a59c16d3"
+  },
+  {
+    "path": "app/utils/__init__.py",
+    "bytes": 385,
+    "sha256": "592f7bc709445f752589945e90c4bc9ba9f596e76d0eb2572f05fcbfe650df47"
+  },
+  {
+    "path": "config.py",
+    "bytes": 1045,
+    "sha256": "9f220b15af0d0d35ee33465b049ea47364c13d2a39e71508f69f1bb95671297f"
+  },
+  {
+    "path": "create_admin.py",
+    "bytes": 1158,
+    "sha256": "5a3cc93db5f15f4e163da574af7b1420177372587767f9ae14db663e1acb72b7"
+  },
+  {
+    "path": "docs/ORIGINAL-README.md",
+    "bytes": 1182,
+    "sha256": "876840fa3fde957a5e7488afeaa7a32d5c6c21d69e74dc44cfa0115ad7e6f0c7"
+  },
+  {
+    "path": "docs/RELEASE-CONTENTS.md",
+    "bytes": 2178,
+    "sha256": "7b37173958ae064b34ddc0a913e7b7dc8b6ca7596c884a19ed50ada5da21df98"
+  },
+  {
+    "path": "docs/REVIEW.md",
+    "bytes": 939,
+    "sha256": "c3911effc1b300520a1ff478ba34ee1cd18793a07e29f8e903c3643e96e8bc11"
+  },
+  {
+    "path": "docs/screenshots/courses.png",
+    "bytes": 16197,
+    "sha256": "0422dcd2eac476b53485489193b466396f5bff3b95e54651ed7c9c1ce5516819"
+  },
+  {
+    "path": "docs/screenshots/home.png",
+    "bytes": 289768,
+    "sha256": "c8a5d9fb4fffd5b0848b1229cb988589c4eac2f4bc9eb3eb11eeeb758aa6ced2"
+  },
+  {
+    "path": "docs/TEST-ENVIRONMENT.md",
+    "bytes": 1283,
+    "sha256": "c492b8b272f945432b346dffc02a36cbcf582cf5798d0841bc05e03eda1acae3"
+  },
+  {
+    "path": "README.md",
+    "bytes": 5401,
+    "sha256": "0077b6d8c4c7dac95225eab8d0ebc908ec73b6d293eba7c0374e32f887709e1f"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 174,
+    "sha256": "a6b51fb508f2e9d3e8fdd340e3e6e0e81094aee124127509d6592d5d723a8666"
+  },
+  {
+    "path": "run.py",
+    "bytes": 271,
+    "sha256": "d99401c92863d6d59749d975afe9140aa5f200b2943850fceff6286d65cdf6ad"
+  },
+  {
+    "path": "tests/test_workflows.py",
+    "bytes": 3421,
+    "sha256": "549e981853c1ca04e148df6308ce327c7e24d46b220b63314b4e82503b83b808"
+  }
+]

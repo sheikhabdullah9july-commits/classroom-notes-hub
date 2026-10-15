@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Chat Room - Classroom Notes{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-plus-circle"></i> Create Chat Room</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Room Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="e.g., CS101 Discussion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Room Type</label>
+                        <select name="room_type" class="form-select">
+                            <option value="group">Group Chat</option>
+                            <option value="class">Class Discussion</option>
+                            <option value="direct">Study Group</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i> Create Room
+                        </button>
+                        <a href="{{ url_for('chat.index') }}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

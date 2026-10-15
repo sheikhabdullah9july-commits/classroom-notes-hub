@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat Rooms - Classroom Notes{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-chat-dots"></i> Chat Rooms</h2>
+    <a href="{{ url_for('chat.create_room') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Create Room
+    </a>
+</div>
+
+{% if rooms %}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for room in rooms %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h5 class="card-title">
+                        <i class="bi bi-chat-square-text text-primary"></i> {{ room.name }}
+                    </h5>
+                    <span class="badge bg-{{ 'success' if room.room_type == 'class' else 'info' }}">
+                        {{ room.room_type }}
+                    </span>
+                </div>
+                <p class="card-text text-muted small">
+                    <i class="bi bi-chat"></i> {{ room.messages.count() }} messages
+                </p>
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-between">
+                <a href="{{ url_for('chat.room', id=room.id) }}" class="btn btn-primary btn-sm">
+                    <i class="bi bi-box-arrow-in-right"></i> Join
+                </a>
+                {% if current_user.role == 'admin' %}
+                <form method="POST" action="{{ url_for('chat.delete_room', id=room.id) }}" 
+                      onsubmit="return confirm('Delete this room?');">
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5">
+    <i class="bi bi-chat-square display-1 text-muted"></i>
+    <h4 class="mt-3">No Chat Rooms Yet</h4>
+    <p class="text-muted">Create the first chat room to start chatting!</p>
+    <a href="{{ url_for('chat.create_room') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Create Room
+    </a>
+</div>
+{% endif %}
+{% endblock %}
+

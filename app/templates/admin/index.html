@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Panel - Classroom Notes{% endblock %}
+
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-gear"></i> Admin Dashboard</h2>
+
+<!-- Stats Cards -->
+<div class="row row-cols-1 row-cols-md-4 g-4 mb-4">
+    <div class="col">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body text-center">
+                <h2>{{ stats.users }}</h2>
+                <p class="mb-0"><i class="bi bi-people"></i> Users</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body text-center">
+                <h2>{{ stats.courses }}</h2>
+                <p class="mb-0"><i class="bi bi-journal-bookmark"></i> Courses</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-info text-white shadow">
+            <div class="card-body text-center">
+                <h2>{{ stats.notes }}</h2>
+                <p class="mb-0"><i class="bi bi-file-earmark"></i> Total Notes</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-warning text-dark shadow">
+            <div class="card-body text-center">
+                <h2>{{ stats.pending_notes }}</h2>
+                <p class="mb-0"><i class="bi bi-clock"></i> Pending Approval</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Links -->
+<div class="row mb-4">
+    <div class="col">
+        <div class="btn-group">
+            <a href="{{ url_for('admin.users') }}" class="btn btn-outline-primary">
+                <i class="bi bi-people"></i> Manage Users
+            </a>
+            <a href="{{ url_for('admin.notes') }}" class="btn btn-outline-primary">
+                <i class="bi bi-file-earmark"></i> All Notes
+            </a>
+            <a href="{{ url_for('courses.add') }}" class="btn btn-outline-success">
+                <i class="bi bi-plus-circle"></i> Add Course
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Pending Notes -->
+<div class="card shadow">
+    <div class="card-header bg-warning d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-clock"></i> Notes Pending Approval</h5>
+        <span class="badge bg-dark">{{ pending_notes|length }}</span>
+    </div>
+    <div class="card-body">
+        {% if pending_notes %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Course</th>
+                        <th>Uploaded By</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for note in pending_notes %}
+                    <tr>
+                        <td>
+                            <a href="{{ url_for('notes.view', id=note.id) }}">{{ note.title }}</a>
+                            <span class="badge bg-{{ 'danger' if note.file_type == 'pdf' else 'primary' }}">
+                                {{ note.file_type|upper }}
+                            </span>
+                        </td>
+                        <td>{{ note.course.code }}</td>
+                        <td>{{ note.author.username }}</td>
+                        <td>{{ note.uploaded_at.strftime('%d %b %Y') }}</td>
+                        <td>
+                            <a href="{{ url_for('notes.download', id=note.id) }}" class="btn btn-sm btn-info">
+                                <i class="bi bi-eye"></i> Review
+                            </a>
+                            <form method="POST" action="{{ url_for('admin.approve_note', note_id=note.id) }}" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <i class="bi bi-check"></i> Approve
+                                </button>
+                            </form>
+                            <form method="POST" action="{{ url_for('admin.reject_note', note_id=note.id) }}" class="d-inline"
+                                  onsubmit="return confirm('Reject and delete this note?');">
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="bi bi-x"></i> Reject
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-4">
+            <i class="bi bi-check-circle display-4 text-success"></i>
+            <p class="mt-2 text-muted">No pending notes! All caught up.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

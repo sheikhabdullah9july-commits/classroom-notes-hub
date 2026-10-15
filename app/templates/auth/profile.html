@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile - Classroom Notes{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-person-circle"></i> My Profile</h4>
+            </div>
+            <div class="card-body p-4">
+                <!-- Profile Info -->
+                <div class="text-center mb-4">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 100px; height: 100px; font-size: 2.5rem;">
+                        {{ current_user.username[0].upper() }}
+                    </div>
+                    <h3 class="mt-3 mb-1">{{ current_user.username }}</h3>
+                    <span class="badge bg-{{ 'danger' if current_user.role == 'admin' else 'success' if current_user.role == 'teacher' else 'primary' }} fs-6">
+                        {{ current_user.role.title() }}
+                    </span>
+                </div>
+                
+                <hr>
+                
+                <!-- User Details -->
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">
+                        <i class="bi bi-envelope"></i> Email:
+                    </div>
+                    <div class="col-sm-8">
+                        <strong>{{ current_user.email }}</strong>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">
+                        <i class="bi bi-calendar"></i> Joined:
+                    </div>
+                    <div class="col-sm-8">
+                        <strong>{{ current_user.created_at.strftime('%d %B %Y') }}</strong>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">
+                        <i class="bi bi-file-earmark-text"></i> Notes Uploaded:
+                    </div>
+                    <div class="col-sm-8">
+                        <strong>{{ current_user.notes.count() }}</strong>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- Actions -->
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('notes.my_notes') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-folder"></i> View My Notes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

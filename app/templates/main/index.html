@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Classroom Notes{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Background Image -->
+<div class="position-relative mb-5 rounded-4 overflow-hidden" style="min-height: 400px;">
+    <!-- Background Image -->
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+         style="background: url('{{ url_for('static', filename='images/hero-image.png') }}') center center no-repeat;
+                background-size: cover; opacity: 0.15;">
+    </div>
+    <!-- Gradient Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+         style="background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(147,197,253,0.2) 100%);">
+    </div>
+    <!-- Content -->
+    <div class="position-relative p-5 text-center">
+        <h1 class="display-4 fw-bold text-primary mb-3">
+            <i class="bi bi-journal-bookmark-fill"></i> Online Classroom Note-Sharing System
+        </h1>
+        <p class="lead text-muted mb-4 mx-auto" style="max-width: 600px;">
+            Share and download class notes, past papers, and slides.
+            Collaborate with your classmates and boost your learning!
+        </p>
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg me-2 mb-2 px-4">
+            <i class="bi bi-person-plus"></i> Get Started
+        </a>
+        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary btn-lg mb-2 px-4">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+        </a>
+        {% else %}
+        <a href="{{ url_for('courses.index') }}" class="btn btn-primary btn-lg me-2 mb-2 px-4">
+            <i class="bi bi-cloud-upload"></i> Upload Notes
+        </a>
+        <a href="{{ url_for('courses.index') }}" class="btn btn-outline-primary btn-lg mb-2 px-4">
+            <i class="bi bi-folder"></i> Browse Courses
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Features Section -->
+<h3 class="text-center mb-4"><i class="bi bi-stars text-warning"></i> Features</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                    <i class="bi bi-cloud-upload display-5 text-primary"></i>
+                </div>
+                <h5 class="card-title">Upload & Share</h5>
+                <p class="card-text text-muted">Upload notes, past papers, and slides. Share with classmates easily.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                    <i class="bi bi-hand-thumbs-up display-5 text-success"></i>
+                </div>
+                <h5 class="card-title">Like & Comment</h5>
+                <p class="card-text text-muted">Rate notes with likes and share feedback through comments.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                    <i class="bi bi-chat-dots display-5 text-info"></i>
+                </div>
+                <h5 class="card-title">Chat & Discuss</h5>
+                <p class="card-text text-muted">Join chat rooms and discuss with students and teachers.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section (Now Below Features) -->
+<div class="row text-center bg-primary text-white rounded-3 p-4 shadow">
+    <div class="col-md-4">
+        <i class="bi bi-file-earmark-text display-5"></i>
+        <h2 class="display-5 fw-bold">{{ stats.notes }}</h2>
+        <p class="mb-0">Total Notes</p>
+    </div>
+    <div class="col-md-4">
+        <i class="bi bi-people display-5"></i>
+        <h2 class="display-5 fw-bold">{{ stats.users }}</h2>
+        <p class="mb-0">Registered Users</p>
+    </div>
+    <div class="col-md-4">
+        <i class="bi bi-book display-5"></i>
+        <h2 class="display-5 fw-bold">{{ stats.courses }}</h2>
+        <p class="mb-0">Courses</p>
+    </div>
+</div>
+{% endblock %}
+

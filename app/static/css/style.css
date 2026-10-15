@@ -1,0 +1,69 @@
+/* Custom Styles for Classroom Notes */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Cards */
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.bg-light.rounded-3 {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+}
+
+/* Forms */
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Notification Badge */
+.badge {
+    font-size: 0.65rem;
+    position: relative;
+    top: -8px;
+    left: -5px;
+}
+
+/* File Cards */
+.note-card {
+    border-left: 4px solid #0d6efd;
+}
+
+.note-card.pending {
+    border-left-color: #ffc107;
+}
+
+.note-card.approved {
+    border-left-color: #198754;
+}
+
